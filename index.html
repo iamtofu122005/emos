@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EmoScience | Trị liệu cảm xúc & khoa học hành vi</title>
+  <meta name="description" content="EmoScience – trung tâm khoa học cảm xúc: tham vấn tâm lý, trị liệu cá nhân, workshop kỹ năng cảm xúc cho cá nhân và tổ chức." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff8f2;
+      --card:#ffffff;
+      --muted:#6b5a50;
+      --text:#2b211c;
+      --brand:#c17c54;
+      --brand-2:#8c5a3b;
+      --accent: linear-gradient(135deg,var(--brand),var(--brand-2));
+      --radius:16px;
+      --shadow:0 8px 24px rgba(139,86,58,.15);
+      --line:#ecd9cf;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;border-radius:12px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;gap:10px;align-items:center;border:none;padding:14px 18px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;box-shadow:var(--shadow);cursor:pointer;transition:transform .25s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.ghost{background:#fff;color:var(--brand-2);border:1px solid var(--line)}
+    .pill{padding:6px 12px;border-radius:999px;background:rgba(193,124,84,.12);border:1px solid rgba(193,124,84,.35);color:#8c5a3b;font-size:12px;text-transform:uppercase}
+    header{position:sticky;top:0;backdrop-filter:blur(8px);background:rgba(255,248,242,.95);border-bottom:1px solid var(--line);z-index:50;transition:all .3s ease}
+    nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;height:64px}
+    .nav-left{display:flex;align-items:center;gap:12px;min-width:0}
+    .nav-links{justify-self:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .nav-cta{justify-self:end}
+    .nav-cta .btn{max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    @media(max-width:1024px){.nav-links{display:none}}
+    @media(max-width:760px){
+      nav{grid-template-columns:1fr auto;grid-template-rows:auto auto;height:auto;padding:8px 0}
+      .nav-cta{grid-column:1/-1;justify-self:end;margin-top:6px}
+      .pill{display:none}
+      .logo-text{font-size:20px}
+      .nav-cta .btn{font-size:14px;padding:10px 14px;border-radius:14px;max-width:180px}
+    }
+    .nav-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+    .nav-cta{flex:0 0 auto}
+    .logo-text{font-weight:800}
+    @media(max-width:760px){
+      nav{height:auto;padding:8px 0}
+      .pill{display:none}
+      .nav-links{display:none}
+      .logo-text{font-size:20px}
+      .nav-cta .btn{font-size:14px;padding:10px 14px;border-radius:14px}
+    }
+
+    .hero{padding:88px 0 40px;border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .hero h1{font-family:"Playfair Display",serif;font-size:48px;line-height:1.1;margin:10px 0;animation:fadeInUp 1s ease forwards}
+    .hero p{color:var(--muted);font-size:18px;animation:fadeInUp 1.2s ease forwards}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow);opacity:0;transform:scale(0.95);animation:fadeIn 1s forwards}
+
+    @keyframes fadeIn{to{opacity:1;transform:scale(1)}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:transform .3s ease, box-shadow .3s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(139,86,58,.25)}
+
+    footer{padding:28px 0;color:var(--muted);background:#fff3ea;text-align:center}
+    @media(max-width:768px){.hero-grid{grid-template-columns:1fr}.hero h1{font-size:32px}.gallery img{height:180px}}
+  .section{padding:56px 0;border-bottom:1px solid var(--line)}
+    .section h2{font-family:"Playfair Display",serif;font-size:36px;margin:0 0 14px}
+    .lead{color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid-3{grid-template-columns:1fr}}
+    .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+  .input{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:inset 0 1px 0 #fff;transition:border-color .2s ease, box-shadow .2s ease;font-size:16px;color:var(--text)}
+    .input::placeholder{color:rgba(43,33,28,.55)}
+    .input:focus{outline:none;border-color:transparent;box-shadow:0 0 0 3px rgba(193,124,84,.25), inset 0 1px 0 #fff}
+    .contact-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contact-form .actions{display:flex;justify-content:flex-end;margin-top:14px}
+    .contact-form .btn{white-space:nowrap}
+    .nav-cta .btn{white-space:nowrap}
+    @media(max-width:760px){.nav-links{display:none}.contact-form .row{grid-template-columns:1fr}.contact-form .actions{justify-content:stretch}.contact-form .btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-left">
+          <a href="#" class="logo"><span class="logo-mark"></span><span class="logo-text">EmoScience</span></a>
+          <span class="pill">Khoa học cảm xúc</span>
+        </div>
+        <div class="nav-links">
+          <a href="#dich-vu">Dịch vụ</a>
+          <a href="#phuong-phap">Phương pháp</a>
+          <a href="#chuong-trinh">Chương trình</a>
+          <a href="#hoi-dap">Hỏi đáp</a>
+          <a href="#lien-he">Liên hệ</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn" href="#lien-he">Inbox để biết thêm</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">🎯 Lành mạnh cảm xúc · Bền vững hành vi</div>
+          <h1>Nền tảng trị liệu cảm xúc<br>kết hợp khoa học hành vi</h1>
+          <p>Định danh vấn đề rõ ràng, can thiệp theo mục tiêu, theo dõi bằng dữ liệu. Inbox để được tư vấn lộ trình phù hợp.</p>
+          <div style="display:flex;gap:12px;margin-top:16px">
+            <a class="btn" href="#lien-he">Inbox tư vấn</a>
+            <a class="btn ghost" href="#dich-vu">Xem dịch vụ</a>
+          </div>
+        </div>
+        <div>
+          <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop" alt="Mindfulness"/>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Workshop"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dich-vu" class="section">
+      <div class="container">
+        <h2>Dịch vụ trọng tâm</h2>
+        <p class="lead">Thiết kế theo mục tiêu. Không công bố giá. Inbox để nhận phác đồ cá nhân hoá và báo phí minh bạch.</p>
+        <div class="grid-3">
+          <div class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="Tham vấn cá nhân">
+            <h3>Tham vấn & trị liệu 1:1</h3>
+            <p>Lo âu, stress học tập, rối loạn giấc ngủ, kiểm soát cảm xúc, kỹ năng giao tiếp.</p>
+            <ul>
+              <li>Lịch online/offline linh hoạt</li>
+              <li>Phiên 30–50 phút</li>
+              <li>6–10 buổi/đợt</li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" alt="Workshop kỹ năng">
+            <h3>Workshop kỹ năng cảm xúc</h3>
+            <p>Mindfulness căn bản, tái cấu trúc nhận thức, quản trị thời gian và năng lượng.</p>
+            <ul>
+              <li>Nhóm 10–30 người</li>
+              <li>60–120 phút/buổi</li>
+              <li>Tài liệu thực hành</li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <img class="thumb" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Chương trình doanh nghiệp">
+            <h3>Chương trình doanh nghiệp</h3>
+            <p>Sàng lọc tinh thần, đào tạo quản lý, hotline hỗ trợ, can thiệp theo vai trò.</p>
+            <ul>
+              <li>Đánh giá ẩn danh</li>
+              <li>Báo cáo chỉ số định kỳ</li>
+              <li>Kế hoạch can thiệp 3–6 tháng</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="phuong-phap" class="section">
+      <div class="container">
+        <h2>Phương pháp</h2>
+        <div class="grid-3">
+          <div class="card reveal">
+            <h3>Evidence‑based</h3>
+            <p>Ưu tiên CBT, ACT, MBCT. Chỉ sử dụng kỹ thuật có bằng chứng.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Quy trình 3 bước</h3>
+            <p>Sàng lọc → Can thiệp → Theo dõi. Điều chỉnh theo dữ liệu tiến triển.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Thang đo chuẩn</h3>
+            <p>PHQ‑9, GAD‑7, ISI… ghi nhận mỗi 2–3 buổi để tối ưu hiệu quả.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chuong-trinh" class="section">
+      <div class="container">
+        <h2>Chương trình tiêu biểu</h2>
+        <div class="grid-3">
+          <div class="card reveal"><h3>Làm cha mẹ từ Zero</h3><p>Khung tư duy nuôi dạy: từ hạt giống đến cây trưởng thành. 5 cấp độ cha mẹ. Kết nối an toàn.</p></div>
+          <div class="card reveal"><h3>Trí tuệ cảm xúc tuổi Teen · 21 ngày</h3><p>Tự hiểu mình, quản lý mạng xã hội, xử lý bạo lực học đường, quan hệ bạn bè và gia đình.</p></div>
+          <div class="card reveal"><h3>Em bé EQ (4–11 tuổi) · 12 buổi</h3><p>Hỗ trợ cha mẹ, giáo viên nuôi dưỡng nhận biết và điều tiết cảm xúc ở trẻ.</p></div>
+          <div class="card reveal"><h3>Làm cha mẹ tỉnh thức · 21 ngày</h3><p>Tự soi chiếu, sửa mình, tái kết nối với con qua tương tác hằng ngày có chủ đích.</p></div>
+          <div class="card reveal"><h3>Thấu hiểu TeenEQ (12–18)</h3><p>Tâm lý và não bộ tuổi dậy thì, sức khỏe tinh thần, giáo dục giới tính, định hướng tương lai.</p></div>
+          <div class="card reveal"><h3>Student Focus</h3><p>Quản trị thời gian, chống trì hoãn, hệ thống hóa học tập dành cho học sinh‑sinh viên.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hoi-dap" class="section">
+      <div class="container">
+        <h2>Hỏi đáp nhanh</h2>
+        <div class="card reveal">
+          <details open>
+            <summary><strong>Tại sao không hiển thị giá?</strong></summary>
+            <p>Chi phí phụ thuộc mục tiêu, mức độ vấn đề, hình thức và số buổi. Inbox để nhận phương án và báo phí phù hợp.</p>
+          </details>
+          <details>
+            <summary><strong>Online có hiệu quả?</strong></summary>
+            <p>Nghiên cứu cho thấy trị liệu trực tuyến hiệu quả tương đương nhiều trường hợp khi đảm bảo quy trình.</p>
+          </details>
+          <details>
+            <summary><strong>Thời lượng 1 buổi?</strong></summary>
+            <p>30–50 phút cho trị liệu. 60–120 phút cho workshop nhóm.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="lien-he" class="section">
+      <div class="container">
+        <h2>Liên hệ</h2>
+        <div class="grid-3">
+          <div class="card reveal">
+            <h3 style='margin-bottom:16px;font-size:20px;font-weight:600'>Gửi tin nhắn nhanh</h3>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Đã gửi thông tin!');">
+              <div class='row'>
+                <input class='input' type='text' placeholder="Họ và tên" autocomplete="name" required>
+                <input class='input' type="tel" placeholder="Số điện thoại" inputmode="tel" autocomplete="tel">
+              </div>
+              <div style='display:grid;gap:12px;margin-top:12px'>
+                <input class='input' type="email" placeholder="Email" autocomplete="email">
+                <textarea class='input' placeholder="Mục tiêu hoặc nội dung cần hỗ trợ" rows="4"></textarea>
+              </div>
+              <div class='actions'>
+                <button class="btn" type="submit">📨 Gửi thông tin</button>
+              </div>
+              <p class='lead' style='margin-top:8px;font-size:13px'>Chúng tôi phản hồi trong giờ làm việc. Thông tin của bạn được bảo mật.</p>
+            </form>
+          </div>
+          <div class="card reveal">
+            <h3>Kênh liên lạc</h3>
+            <p>Bạn có thể liên hệ trực tiếp với EmoScience qua:</p>
+            <ul>
+              <li><a href="https://m.me/" target="_blank">💬 Facebook Messenger</a></li>
+              <li><a href="https://zalo.me/" target="_blank">📱 Zalo</a></li>
+              <li><a href="tel:+84">📞 Gọi điện thoại</a></li>
+              <li><a href="mailto:contact@emoscience.vn">✉️ Email: contact@emoscience.vn</a></li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h3>Địa điểm</h3>
+            <img class="thumb" src="https://i.postimg.cc/kGxkbFts/anh-duoc-tao-boi-tranmaihuongskds-luc-4724664303378-1700880183385588286717.png" alt="Không gian EmoScience"/>
+            <p>Không gian trị liệu riêng tư, ấm cúng, tối ưu trải nghiệm tham vấn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> EmoScience
+  </footer>
+
+  <script>
+    // năm
+    document.getElementById('y').textContent=new Date().getFullYear();
+    // fallback ảnh
+    const placeholder='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="%23fff3ea"/><stop offset="100%" stop-color="%23e7c4ac"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%238c5a3b" font-family="Inter" font-size="32">EmoScience</text></svg>';
+    document.querySelectorAll('img').forEach(img=>{img.loading='lazy';img.decoding='async';img.onerror=()=>{img.src=placeholder}});
+    // animation on scroll
+    const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
